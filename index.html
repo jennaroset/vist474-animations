@@ -1,0 +1,525 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width; initial-scale=1.0">
+	<title>Animations & Tooltips</title>
+    <link href="https://fonts.googleapis.com/css?family=Lato:400,700|Oxygen:300,400,700|Allura" rel="stylesheet">
+	<!-- supporting legacy browsers -->
+	<!--[if lt IE 9]><script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script><![end if]-->
+    <style type="text/css">
+        body {
+            font-family: 'Lato', sans-serif;
+            margin: 0;
+            color: #5D5E5E;
+            animation: fade-in 0.8s ease-out;
+            background: url("images/cross_scratches_@2X.png") repeat;
+/*            background-color: #e7e4e7;*/
+        }
+        body:before {
+            content: '';
+            background-color: rgba(207, 201, 207, 0.4);
+            top: 0;
+            left: 0;
+            height: 100%;
+            width: 100%;
+            position: fixed;
+            z-index: -2;
+        }
+        
+        @keyframes fade-in {
+            0% {
+                opacity: 0;
+            }
+            100% {
+                opacity: 1;
+            }
+        }
+
+        h1,
+        h2,
+        h3,
+        h4,
+        h5,
+        h6 {
+            font-family: 'Oxygen', sans-serif;
+        }
+
+        .wrapper {
+            max-width: 980px;
+            margin: 0 auto;
+        }
+
+        /* HEADER */
+
+        .header {
+            height: 110px;
+            overflow: hidden;
+            padding-top: 10px;
+            border-bottom: 8px solid #b6adb8;
+            position: fixed;
+            width: 100%;
+            z-index: 999;
+            background-color: #fff;
+        /*    background-color: #fdfbf5;*/
+            background-color: rgba(182, 173, 184, 0.85);
+            animation: header 0.8s ease-out both;
+        }
+        
+        @keyframes header {
+            0% {
+                transform: translateY(-128px);
+            }
+            100% {
+                transform: translateY(0);
+            }
+        }
+
+        .header-wrap {
+            max-width: 1170px;
+            margin: 0 auto;
+        }
+
+        .header-left {
+            float: left;
+            width: 40%;
+        }
+
+        .logo {
+            display: inline-block;
+        }
+
+        .logo img {
+            height: 90px;
+            margin-right: 8px;
+        }
+
+        .header-left h1 {
+            display: inline-block;
+            font-size: 60px;
+            color: #685D6B;
+            font-weight: 400;
+            margin: 0;
+            vertical-align: top;
+            margin-top: 14px;
+            text-shadow: 2px 2px 10px #685D6B;
+        }
+        
+        .nav {
+            float: right;
+            width: 60%;
+        }
+
+        .nav ul {
+            margin: 10px 0 0;
+        }
+
+        .nav li {
+            text-decoration: none;
+            list-style: none;
+            float: left;
+            width: 23.5%;
+            text-align: center;
+            margin-left: 2%;
+            text-shadow: 2px 2px 9px #685D6B;
+        }
+
+        .nav li:first-child {
+            margin-left: 0;
+        }
+
+        .nav li a {
+            padding: 30px 10px;
+            display: block;
+            text-decoration: none;
+            text-transform: uppercase;
+            color: #5D5E5E;
+            font-size: 20px;
+            transition: all 0.3s ease-in-out;
+        }
+
+        .nav li a:hover {
+            color: #fff;
+        }
+        
+        .homepage-hero {
+            height: auto;
+            width: 100%;
+            position: relative;
+            max-height: 600px;
+            overflow: hidden;
+            
+        }
+        
+        .hero-text {
+            color: #fff;
+            text-align: center;
+            position: absolute;
+            width: 100%;
+            top: 50%;
+            text-shadow: 4px 4px 4px rgba(0,0,0,0.6);
+        }
+        
+        .hero-text.top {
+            font-family: 'Allura', sans-serif;
+            font-size: 136px;
+            line-height: 60px;
+        }
+        
+        .hero-text.bottom {
+            font-family: 'Oxygen', sans-serif;
+            font-size: 50px;
+            margin-top: 80px;
+        }
+        
+        /* Gallery */
+        
+        .gallery {
+            position: relative;
+        }
+        .three.columns {
+            width: 32%;
+            float: left;
+            margin-right: 2%;
+        }
+        .row {
+            margin-bottom: 10px;
+            overflow: hidden;
+        }
+        .three.columns:last-child {
+            margin-right: 0;
+        }
+        .gallery h2 {
+            font-size: 50px;
+            text-align: center;
+            font-family: 'Allura', sans-serif;
+            margin-bottom: 60px;
+            margin-top: 100px;
+        }
+        
+        .gallery a.text-text {
+            text-decoration: none;
+            color: #5D5E5E;
+            cursor: default;
+            position: relative;
+            display: block;
+        }
+        
+        .gallery a.text-text span {
+            display: none;
+        }
+        
+        .gallery a.text-text:hover span {
+            display: block;
+            position: absolute;
+            top: 68px;
+            left: 50%;
+            -moz-transform: translateX(-50%);
+            -webkit-transform: translateX(-50%);
+            -o-transform: translateX(-50%);
+            -ms-transform: translateX(-50%);
+            transform: translateX(-50%);
+            background-color: rgba(73, 105, 90, 0.7);
+            z-index: 40;
+            color: #fff;
+            padding: 7px 20px;
+            font-size: 18px;
+            border-radius: 100px;
+            animation: fade-in 0.5s ease-in-out;
+        }
+        
+        @keyframes fade-in {
+            0% {
+                opacity: 0;
+            }
+            100% {
+                opacity: 1;
+            }
+        }
+        
+        .gallery img {
+            max-width: 100%;
+            height: auto;
+        }
+    
+        .gallery a.image-text {
+            position: relative;
+            display: block;
+            cursor: default;
+            overflow: hidden;
+        } 
+        .gallery a.image-text span {
+            display: none;
+        } 
+        .gallery a.image-text:hover span { 
+            display: block; 
+            position: absolute; 
+            top: 10px; 
+            padding: 5px 10px; 
+            background-color: rgba(0, 0, 0, 0.5); 
+            color: white; 
+            z-index: 40; 
+            animation: tooltip 0.7s ease-in-out both;
+        }
+        
+        .gallery.facility {
+            overflow: hidden;
+            padding-bottom: 200px;
+        }
+        
+        .gallery.facility .row {
+            overflow: visible;
+            clear: both;
+        }
+        
+        .gallery.facility a.text-text:hover span {
+            top: 0;
+            left: 30px;
+            -moz-transform: translateX(0);
+            -webkit-transform: translateX(0);
+            -o-transform: translateX(0);
+            -ms-transform: translateX(0);
+            transform: translateX(0);
+        }
+        
+        .gallery.facility a.text-text span img {
+            height: 50px;
+            vertical-align: middle;
+            padding-left: 10px;
+        }
+        
+        .gallery.facility a.image-image {
+            position: relative;
+            display: block;
+            cursor: default;
+            overflow: visible;
+        } 
+        .gallery.facility a.image-image span {
+            display: none;
+        } 
+        .gallery.facility a.image-image:hover span { 
+            display: block; 
+            position: absolute; 
+            top: 0; 
+            left: 0;
+            color: white; 
+            z-index: 40; 
+            background-color: transparent;
+            animation: fade-in 0.5s ease-in-out both;
+        }
+        
+        .gallery.facility .three.columns:nth-child(2) a.image-image:hover span {
+            left: 50%;
+            -moz-transform: translateX(-50%);
+            -webkit-transform: translateX(-50%);
+            -o-transform: translateX(-50%);
+            -ms-transform: translateX(-50%);
+            transform: translateX(-50%);
+        }
+        
+        
+        .gallery.facility .three.columns:last-child a.image-image:hover span {
+            right: 0;
+            left: auto;
+        }
+        
+        .gallery.facility a.image-image:hover span img {
+            width: 400px;
+            max-width: 500px;
+        }
+        
+        @keyframes tooltip {
+            0% {
+                left: 500px;
+            }
+            100% {
+                left: 10px;
+            }
+        }
+        
+        /* Footer -------------- */
+        footer {
+            background-color: #b6adb8;
+            padding: 20px 0;
+            color: #fff;
+
+        }
+        .footer-content {
+            display: -webkit-box;
+            display: -moz-box;
+            display: -ms-flexbox;
+            display: -webkit-flex;
+            display: flex;
+            width: 100%;
+            text-align: center;
+        }
+        .footer-content .contact-left {
+            -webkit-box-flex: 0 1 50%;
+            -moz-box-flex: 0 1 50%;
+            -webkit-flex: 0 1 50%;
+            -ms-flex: 0 1 50%;
+            flex: 0 1 50%;
+            margin: 1%;
+            padding: 0.5%;
+        }
+        .footer-content .contact-right {
+            -webkit-box-flex: 0 1 50%;
+            -moz-box-flex: 0 1 50%;
+            -webkit-flex: 0 1 50%;
+            -ms-flex: 0 1 50%;
+            flex: 0 1 50%;
+            margin: 1%;
+            padding: 0.5%;
+        }
+        
+        .footer a.image-image {
+            display: block;
+            position: relative;
+            font-size: 20px;
+        }
+        
+        .footer a.image-image span {
+            display: none;
+        }
+        
+        .footer a.image-image span img {
+            height: 100px;
+        }
+        
+        .footer a.image-image:hover span {
+            display: block;
+            position: absolute;
+            top: 0;
+            left: 0;
+            animation: fade-in 0.5s ease-in-out both;
+        }
+
+
+    </style>
+</head>
+    <header class="header">
+        <div class="header-wrap">
+            <div class="header-left">
+                <div class="logo">
+                    <img src="images/logo.png" />
+                </div>
+                <h1>Plantings</h1>
+            </div>
+
+
+            <nav id="main-nav" class="nav">
+                <ul>
+                    <li>
+                        <a href="#">Home</a>
+                    </li>
+                    <li>
+                        <a href="#">About</a>
+                    </li>
+                    <li>
+                        <a href="#gallery">Gallery</a>
+                    </li>
+                    <li>
+                        <a href="#">Contact</a>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+    <body>
+        <div class="homepage-hero">
+            <video width="100%" height="auto" autoplay loop>
+                <source src="video/raindrops_on_leaf.mp4" type="video/mp4" />
+                <source src="video/raindrops_on_leaf.webm" type="video/webm" />
+                <source src="video/raindrops_on_leaf.ogv" type="video/ogv" />
+            </video>
+            <div class="hero-text top">Pellentesque</div>
+            <div class="hero-text bottom">primis + luctus + orci</div>
+        </div>
+        <div class="main-content">
+            <div class="wrapper">
+                <section class="gallery">
+                    <a class="text-text">
+                    <h2>Plants Gallery</h2><span>examples of plants we sell</span></a>
+                    <div class="gallery-images">
+                        <div class="row">
+                            <div class="three columns">
+                                <a class="image-text"><img src="images/gallery-2.jpg" /><span>Succulents</span></a>
+                            </div>
+                            <div class="three columns">
+                                <a class="image-text"><img src="images/gallery-1.jpg" /><span>Plant</span></a>
+                            </div>
+                            <div class="three columns">
+                                <a class="image-text"><img src="images/gallery-7.jpg" /><span>Plant</span></a>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="three columns">
+                                <a class="image-text"><img src="images/gallery-4.jpg" /><span>Rose</span></a>
+                            </div>
+                            <div class="three columns">
+                                <a class="image-text"><img src="images/gallery-5.jpg" /><span>Succulent</span></a>
+                            </div>
+                            <div class="three columns">
+                                <a class="image-text"><img src="images/gallery-8.jpg" /><span>Succulents</span></a>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+                <section class="gallery facility">
+                    <a class="text-text">
+                    <h2>Facility Gallery</h2><span>images of our facilities<img src="images/logo.png" /></span></a>
+                    <div class="gallery-images">
+                        <div class="row">
+                            <div class="three columns">
+                                <a class="image-image"><img src="images/f-gallery-6.jpeg" /><span><img src="images/f-gallery-6.jpeg" /></span></a>
+                            </div>
+                            <div class="three columns">
+                                <a class="image-image"><img src="images/f-gallery-1.jpg" /><span><img src="images/f-gallery-1.jpg" /></span></a>
+                            </div>
+                            <div class="three columns">
+                                <a class="image-image"><img src="images/f-gallery-4.jpeg" /><span><img src="images/f-gallery-4.jpeg" /></span></a>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </div>
+        </div>
+        <footer class="footer">
+        <div class="wrapper">
+            <div class="footer-content">
+                <div class="contact-left">
+                    <div class="contact-line">
+                        <a class="image-image">Plantings<span><img src="images/logo.png" /></span></a>
+                    </div>
+                    <div class="contact-line">
+                        1234 Street Name
+                    </div>
+                    <div class="contact-line">
+                        City Name, TX 77777
+                    </div>
+                    <div class="contact-line">
+                        plantings@gmail.com
+                    </div>
+                    <div class="contact-line">
+                        (555)-55P-LANT
+                    </div>
+                </div>
+                <div class="contact-right">
+                    <div class="contact-line">
+                        &nbsp;
+                    </div>
+                    <div class="contact-line">
+                        Website by:
+                    </div>
+                    <div class="contact-line">
+                        Jenna Thompson
+                    </div>
+                    <div class="contact-line">
+                        jenna.roset@tamu.edu
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+    </body>
+</html>
